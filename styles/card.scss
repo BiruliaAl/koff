@@ -1,0 +1,74 @@
+.card {
+    position: relative;
+
+
+    @media (min-width: 580px) {
+        display: grid;
+        grid-template-areas: 
+           'img img'
+           'title price'
+           'btn btn';
+    }
+
+    &__link {
+
+        &_img {
+            display: block;
+            margin-bottom: 12px;
+
+        @media (min-width: 580px) {
+            grid-area: img;
+            margin-bottom: 16px;
+            };
+        }
+    }
+
+    &__img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    &__title {
+        margin-bottom: 4px;
+        font-size: 12px;
+        font-weight: 400;
+
+        @media (min-width: 580px) {
+            font-size: 16px;
+            grid-area: title;
+        };
+
+        @media (min-width: 820px) {
+            margin-right: 5px;
+        };
+
+    }
+
+    &__price {
+        font-size: 16px;
+        margin-bottom: 12px;
+
+        @media (min-width: 580px) {
+            font-size: 20px;
+            grid-area: price;
+        };
+    }
+
+    &__btn {
+        color: #780096;
+        padding: 12px 24px;
+        border-radius: 32px;
+        border: 1px solid #780096;
+        width: 100%;
+        @media (min-width: 580px) {
+            grid-area: btn;
+        };
+    }
+
+    &__favorite {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+    }
+}
