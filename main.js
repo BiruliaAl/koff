@@ -1,6 +1,12 @@
 import 'normalize.css';
 import './style.scss';
 import Navigo from 'navigo';
+import {Header} from './modules/header/Header';
+import {Main} from './modules/main/Main';
+import {Footer} from './modules/footer/Footer';
+import {Order} from './modules/order/Order';
+
+console.log(new Main().element)
 
 const productSlider = () => {
   Promise.all([
@@ -34,6 +40,10 @@ const productSlider = () => {
 const init = () => {
   productSlider();
 
+  new Header().mount();
+  new Main().mount();
+  new Footer().mount();
+
   const router = new Navigo('/', {linksSelector: 'a[href^="/"]'});
 
   router
@@ -56,7 +66,7 @@ const init = () => {
     console.log('cart ');
   })
   .on('/order', () => {
-    console.log('order');
+    new Order().mount(new Main().element);
   })
   .notFound(() => {
     console.log('error ');
